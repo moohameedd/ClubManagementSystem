@@ -13,6 +13,8 @@ class Welcome extends JFrame implements ActionListener {
         super("Welcome");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // centrer la fenêtre
+
 
         JPanel p = new JPanel() {
             Image bg = new ImageIcon("src/img1.jpg").getImage();
@@ -65,7 +67,8 @@ class Welcome extends JFrame implements ActionListener {
 
                 
             } else if (b2.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Login");
+                new login();
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Choisissez une option");
             }

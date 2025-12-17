@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 17 déc. 2025 à 15:01
+-- Généré le : mer. 17 déc. 2025 à 17:59
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `activitee` (
   `id_activitee` int(11) NOT NULL,
-  `type_activitee` varchar(200) NOT NULL,
+  `nom_activitee` varchar(200) NOT NULL,
+  `type` varchar(100) NOT NULL,
   `date_activitee` date NOT NULL,
   `id_club` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
@@ -39,12 +40,12 @@ CREATE TABLE `activitee` (
 -- Déchargement des données de la table `activitee`
 --
 
-INSERT INTO `activitee` (`id_activitee`, `type_activitee`, `date_activitee`, `id_club`, `id_user`) VALUES
-(1, 'contest for beginners', '2025-12-20', 1, 2),
-(2, 'workshop(prefix-sum/sufix-sum)', '2025-12-27', 1, 1),
-(3, 'tech conference event', '2025-12-21', 2, 3),
-(4, 'live music event', '2025-12-24', 3, 4),
-(5, 'culturel event ', '2025-12-26', 4, 5);
+INSERT INTO `activitee` (`id_activitee`, `nom_activitee`, `type`, `date_activitee`, `id_club`, `id_user`) VALUES
+(1, 'contest for beginners', 'en ligne', '2025-12-20', 1, 2),
+(2, 'workshop(prefix-sum/sufix-sum)', 'en ligne', '2025-12-27', 1, 1),
+(3, 'tech conference event', 'formation', '2025-12-21', 2, 3),
+(4, 'live music event', 'social', '2025-12-24', 3, 4),
+(5, 'culturel event ', 'culturel', '2025-12-26', 4, 5);
 
 -- --------------------------------------------------------
 
@@ -140,7 +141,7 @@ ALTER TABLE `club`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Contraintes pour les tables déchargées

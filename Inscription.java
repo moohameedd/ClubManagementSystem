@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 
@@ -12,8 +13,27 @@ public class Inscription extends JFrame implements ActionListener {
     public Inscription() {
         setTitle("Inscription");
         setSize(450, 400);
-        setLayout(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null); // centrer la fenêtre
+
+        // JPanel avec image de fond
+        JPanel p = new JPanel() {
+            Image bg = new ImageIcon("src/img1.jpg").getImage();
+
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        p.setLayout(null);
+
+        JLabel title = new JLabel("Inscription au Club", SwingConstants.CENTER);
+        title.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
+        title.setForeground(Color.BLACK);
+        title.setBounds(0, 10, 450, 30);
+        p.add(title);
+        setContentPane(p); // IMPORTANT : utiliser ce JPanel comme content pane
 
         // Labels
         JLabel l1 = new JLabel("Nom:");
@@ -23,29 +43,29 @@ public class Inscription extends JFrame implements ActionListener {
         JLabel l5 = new JLabel("Club:");
         JLabel l6 = new JLabel("Role:");
 
-        l1.setBounds(50, 40, 100, 25);
-        l2.setBounds(50, 80, 100, 25);
-        l3.setBounds(50, 120, 100, 25);
-        l4.setBounds(50, 160, 100, 25);
-        l5.setBounds(50, 200, 100, 25);
-        l6.setBounds(50, 240, 100, 25);
+        l1.setBounds(50, 50, 100, 25);
+        l2.setBounds(50, 90, 100, 25);
+        l3.setBounds(50, 130, 100, 25);
+        l4.setBounds(50, 170, 100, 25);
+        l5.setBounds(50, 210, 100, 25);
+        l6.setBounds(50, 250, 100, 25);
 
-        // Fields
+        // Champs texte
         txtNom = new JTextField();
         txtPrenom = new JTextField();
         txtEmail = new JTextField();
         txtPassword = new JPasswordField();
-        txtRole = new JTextField(); // zone de texte pour role
+        txtRole = new JTextField();
 
-        txtNom.setBounds(170, 40, 180, 25);
-        txtPrenom.setBounds(170, 80, 180, 25);
-        txtEmail.setBounds(170, 120, 180, 25);
-        txtPassword.setBounds(170, 160, 180, 25);
-        txtRole.setBounds(170, 240, 180, 25);
+        txtNom.setBounds(170, 50, 180, 25);
+        txtPrenom.setBounds(170, 90, 180, 25);
+        txtEmail.setBounds(170, 130, 180, 25);
+        txtPassword.setBounds(170, 170, 180, 25);
+        txtRole.setBounds(170, 250, 180, 25);
 
         // ComboBox clubs
         cbClub = new JComboBox<>();
-        cbClub.setBounds(170, 200, 180, 25);
+        cbClub.setBounds(170, 210, 180, 25);
         loadClubs();
 
         // Buttons
@@ -58,11 +78,11 @@ public class Inscription extends JFrame implements ActionListener {
         btnOk.addActionListener(this);
         btnAnnuler.addActionListener(this);
 
-        // Add components
-        add(l1); add(l2); add(l3); add(l4); add(l5); add(l6);
-        add(txtNom); add(txtPrenom); add(txtEmail); add(txtPassword);
-        add(cbClub); add(txtRole);
-        add(btnOk); add(btnAnnuler);
+        // Ajouter tous les composants au JPanel
+        p.add(l1); p.add(l2); p.add(l3); p.add(l4); p.add(l5); p.add(l6);
+        p.add(txtNom); p.add(txtPrenom); p.add(txtEmail); p.add(txtPassword);
+        p.add(cbClub); p.add(txtRole);
+        p.add(btnOk); p.add(btnAnnuler);
 
         setVisible(true);
     }
@@ -106,6 +126,8 @@ public class Inscription extends JFrame implements ActionListener {
         }
         if (e.getSource() == btnOk) {
             insertUser();
+            dispose(); // fermer l'inscription
+            new CalendrierActivity();
         }
     }
 
