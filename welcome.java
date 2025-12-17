@@ -60,7 +60,10 @@ class Welcome extends JFrame implements ActionListener {
             dispose(); 
         } else if (e.getSource() == b3) {
             if (b1.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Inscription");
+                new Inscription();
+                dispose(); 
+
+                
             } else if (b2.isSelected()) {
                 JOptionPane.showMessageDialog(this, "Login");
             } else {

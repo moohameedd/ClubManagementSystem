@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 17 déc. 2025 à 12:21
+-- Généré le : mer. 17 déc. 2025 à 15:01
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -70,10 +70,10 @@ INSERT INTO `club` (`id_club`, `nom_club`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Structure de la table `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `nom` varchar(200) NOT NULL,
   `prenom` varchar(200) NOT NULL,
@@ -84,10 +84,10 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `user`
+-- Déchargement des données de la table `users`
 --
 
-INSERT INTO `user` (`id_user`, `nom`, `prenom`, `email`, `password`, `role`, `id_club`) VALUES
+INSERT INTO `users` (`id_user`, `nom`, `prenom`, `email`, `password`, `role`, `id_club`) VALUES
 (1, 'ben ali', 'ahmed', 'ahmed@gmail.com', '1234', 'member', 1),
 (2, 'ferchichi', 'mohamed', 'hama.ferchichi321@gmail.com', '0000', 'admin', 1),
 (3, 'mansour', 'youssef', 'youssef@gmail.com', '1234', 'member', 2),
@@ -113,9 +113,9 @@ ALTER TABLE `club`
   ADD PRIMARY KEY (`id_club`);
 
 --
--- Index pour la table `user`
+-- Index pour la table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `id_club` (`id_club`);
@@ -137,10 +137,10 @@ ALTER TABLE `club`
   MODIFY `id_club` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT pour la table `users`
 --
-ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Contraintes pour les tables déchargées
@@ -150,14 +150,14 @@ ALTER TABLE `user`
 -- Contraintes pour la table `activitee`
 --
 ALTER TABLE `activitee`
-  ADD CONSTRAINT `activitee_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `activitee_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `activitee_ibfk_2` FOREIGN KEY (`id_club`) REFERENCES `club` (`id_club`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `user`
+-- Contraintes pour la table `users`
 --
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_club`) REFERENCES `club` (`id_club`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_club`) REFERENCES `club` (`id_club`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
