@@ -142,7 +142,7 @@ This project demonstrates:
 ---
 
 ## 🎥 Execution Video
-[![Watch the demo video](assets/thumbnail.png)](https://youtu.be/NEMlgq_tQ3M)
+[![Watch the demo video](src//capt.png)](https://youtu.be/NEMlgq_tQ3M)
 
 
 1. Open the project in **NetBeans / IntelliJ / Eclipse**  
