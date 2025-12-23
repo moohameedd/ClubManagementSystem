@@ -136,17 +136,14 @@ This project demonstrates:
 | id_club       | int(11)       | FK  |
 | id_user       | int(11)       | FK  |
 
----
 
-## 📊 Database Schema
-> Add your database diagram image here:
 
-![Database Schema](src\bd_img.png)  
 
 ---
 
 ## 🎥 Execution Video
-📌 **Application Demonstration**  
+[![Watch the demo video](assets/thumbnail.png)](https://youtu.be/NEMlgq_tQ3M)
+
 
 1. Open the project in **NetBeans / IntelliJ / Eclipse**  
 2. Add `mysql-connector-j.jar` from `lib/` to the project libraries  
