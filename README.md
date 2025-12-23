@@ -149,7 +149,6 @@ This project demonstrates:
 2. Add `mysql-connector-j.jar` from `lib/` to the project libraries  
 3. Run `Welcome.java`  
 
-> Insert your execution video here once recorded.
 
 ---
 
